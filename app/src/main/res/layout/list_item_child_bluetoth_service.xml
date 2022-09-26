@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.dashboard.ExpandableServicesAdapter"
+    android:orientation="vertical"
+    android:background="@color/color_expandable_list_view_header">
+
+    <TextView
+        android:id="@+id/text_view_child_service_uuid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="uuid"
+        android:textSize="@dimen/text_size_expandable_list_view_header"
+        android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
+
+    <TextView
+        android:id="@+id/text_view_child_service_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="type"
+        android:textSize="@dimen/text_size_expandable_list_view_header"
+        android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
+
+    <TextView
+        android:id="@+id/text_view_child_included_services"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="included services"
+        android:textSize="@dimen/text_size_expandable_list_view_header"
+        android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
+
+    <TextView
+        android:id="@+id/text_view_child_included_characteristics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="included characteristic"
+        android:textSize="@dimen/text_size_expandable_list_view_header"
+        android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
+
+</LinearLayout>

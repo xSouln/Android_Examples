@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_view_dashboard_device_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:textSize="20sp"
+        android:layout_marginStart="5pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_view_dashboard_device_mac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mac"
+        android:textSize="20sp"
+        android:layout_marginStart="5pt"/>
+
+    <TextView
+        android:id="@+id/text_view_dashboard_device_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="type"
+        android:textSize="20sp"
+        android:layout_marginStart="5pt"/>
+
+    <TextView
+        android:id="@+id/text_view_dashboard_device_class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="class"
+        android:textSize="20sp"
+        android:layout_marginStart="5pt"/>
+
+    <TextView
+        android:id="@+id/text_view_dashboard_device_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="state"
+        android:textSize="20sp"
+        android:layout_marginStart="5pt"/>
+
+    <ExpandableListView
+        android:id="@+id/expandable_list_services"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:divider="@color/color_expandable_list_view_divider"
+        android:layout_marginTop="10sp"
+        android:dividerHeight="2dp" />
+
+</LinearLayout>
