@@ -1,6 +1,7 @@
 package com.example.habiband.ui.dashboard
 
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothGattCharacteristic
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -8,16 +9,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.habiband.bluetooth.Connection
-import com.example.habiband.bluetooth.Control
+import com.example.habiband.bluetooth.Scanner
 import com.example.habiband.bluetooth.interfaces.IConnectionEventListener
 import com.example.habiband.databinding.FragmentDashboardBinding
-import com.example.habiband.ui.home.HomeAdapter
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(), IConnectionEventListener {
 
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
@@ -29,52 +28,52 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View
+    {
         val dashboardViewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        Connection.setEventListener(this)
+        Connection.registerReceiver(requireContext(), gattUpdateReceiver)
+
         //adapter = ServicesAdapter(requireContext(), Control.connection?.gatt!!)
-        val device = Control.selectedDevice
-        connection = Connection(requireContext())
-        //connection?.setEventListener(this)
-        connection?.registerReceiver(gattUpdateReceiver)
-        connection?.open(device)
-        //val device = Control.connection?.gatt?.device
+        val device = Scanner.selectedDevice
+
+        if (Connection.device != Scanner.selectedDevice && Connection.state == Connection.State.Connected)
+        {
+            Connection.close()
+        }
+
+        Connection.open(device, requireContext())
 
         //binding.listViewBluetoothServices.adapter = adapter
         binding.textViewDashboardDeviceName.text = "name: " + device?.name
         binding.textViewDashboardDeviceMac.text = "mac: " + device?.address
-        binding.textViewDashboardDeviceType.text = "type: " + device?.type
+        binding.textViewDashboardDeviceType.text = "type: " + Scanner.getType(device)
         binding.textViewDashboardDeviceClass.text = "class: " + device?.bluetoothClass
         binding.textViewDashboardDeviceState.text = "state: " + device?.bondState
-
-        //adapter = ExpandableServicesAdapter(requireContext(), connection!!)
-        //binding.expandableListServices.setAdapter(adapter)
-        /*
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        */
 
         return root
     }
 
-    private val gattUpdateReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
+    private val gattUpdateReceiver = object : BroadcastReceiver()
+    {
+        override fun onReceive(context: Context, intent: Intent)
+        {
             when (intent.action) {
-                Control.ACTION_GATT_CONNECTED -> {
+                Scanner.ACTION_GATT_CONNECTED -> {
 
                 }
-                Control.ACTION_GATT_DISCONNECTED -> {
+                Scanner.ACTION_GATT_DISCONNECTED -> {
 
                 }
-                Control.ACTION_GATT_SERVICES_DISCOVERED -> {
+                Scanner.ACTION_GATT_SERVICES_DISCOVERED -> {
                     adapter = ExpandableServicesAdapter(requireContext(), connection)
                     _binding?.expandableListServices?.setAdapter(adapter)
                 }
-                Control.ACTION_DATA_AVAILABLE -> {
+                Scanner.ACTION_DATA_AVAILABLE -> {
                     //Toast.makeText(context, "ACTION_DATA_AVAILABLE", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -84,6 +83,29 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        connection?.unregisterReceiver(gattUpdateReceiver)
+        Connection.unregisterReceiver(requireContext(), gattUpdateReceiver)
+    }
+
+    override fun servicesDiscovered(connection: Connection)
+    {
+        Connection.broadcastUpdate(requireContext(), Scanner.ACTION_GATT_SERVICES_DISCOVERED)
+    }
+
+    override fun connectionStateChanged(connection: Connection)
+    {
+
+    }
+
+    override fun characteristicChanged(connection: Connection, characteristic: BluetoothGattCharacteristic?)
+    {
+
+    }
+
+    override fun characteristicWrite(
+        connection: Connection,
+        characteristic: BluetoothGattCharacteristic?
+    )
+    {
+
     }
 }

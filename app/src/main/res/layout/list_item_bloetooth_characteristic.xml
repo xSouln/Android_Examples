@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="uuid"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:textSize="@dimen/text_size_expandable_list_view_content"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"/>
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="write type"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"
         android:textSize="@dimen/text_size_expandable_list_view_content"/>
 
@@ -30,6 +32,7 @@
         android:layout_height="wrap_content"
         android:text="descriptors count"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"
         android:textSize="@dimen/text_size_expandable_list_view_content"/>
 
@@ -39,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="properties"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"
         android:textSize="@dimen/text_size_expandable_list_view_content"/>
 
@@ -48,6 +52,7 @@
         android:layout_height="wrap_content"
         android:text="permissions"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"
         android:textSize="@dimen/text_size_expandable_list_view_content"/>
 
@@ -57,6 +62,7 @@
         android:layout_height="wrap_content"
         android:text="value"
         android:textStyle="italic"
+        android:textColor="@color/color_text_text_view"
         android:layout_marginStart="@dimen/margin_expandable_list_view_content"
         android:textSize="@dimen/text_size_expandable_list_view_content"/>
 

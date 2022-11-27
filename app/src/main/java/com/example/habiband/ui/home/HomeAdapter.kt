@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import com.example.habiband.R
+import com.example.habiband.bluetooth.Scanner
 
 class HomeAdapter (
     context: Context,
@@ -37,11 +38,14 @@ class HomeAdapter (
             view = this.inflater.inflate(R.layout.list_item_bluetooth_device, parent, false)
         }
 
-        val textViewName = view?.findViewById(R.id.text_view_device_name) as TextView
-        textViewName.text = "name :" + bluetoothDevice.name
+        val name = view?.findViewById(R.id.text_view_device_name) as TextView
+        name.text = "name: " + bluetoothDevice.name
 
-        val textViewMacAddress = view.findViewById(R.id.text_view_device_mac_address) as TextView
-        textViewMacAddress.text = "mac :" + bluetoothDevice.address
+        val mac = view.findViewById(R.id.text_view_device_mac) as TextView
+        mac.text = "mac: " + bluetoothDevice.address
+
+        val type = view.findViewById(R.id.text_view_device_type) as TextView
+        type.text = "type: " + Scanner.getType(bluetoothDevice)
 
         return view
     }

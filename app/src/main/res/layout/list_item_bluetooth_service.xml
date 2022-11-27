@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:text="qwerty"
         android:textSize="20sp"
-        android:layout_marginStart="5pt"
+        android:layout_marginStart="@dimen/text_view_default_margin"
+        android:textColor="@color/color_text_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

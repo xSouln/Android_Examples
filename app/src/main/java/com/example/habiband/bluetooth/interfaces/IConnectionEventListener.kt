@@ -9,4 +9,6 @@ interface IConnectionEventListener {
     fun connectionStateChanged(connection: Connection)
     fun characteristicChanged(connection: Connection,
                               characteristic: BluetoothGattCharacteristic?)
+    fun characteristicWrite(connection: Connection,
+                            characteristic: BluetoothGattCharacteristic?)
 }

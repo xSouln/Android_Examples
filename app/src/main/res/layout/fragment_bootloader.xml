@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.bootloader.BootloaderFragment">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_bootloader_firmware_path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Path"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_red_dark"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_in_boot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="InBoot"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_firmware_loading_init"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="FirmwareLoadingInit"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_operation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="Operation"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_operation_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="OperationResult"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_red_dark"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_session_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="SessionKey"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_image_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="ImageSize"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_image_crc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="ImageCrc"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/holo_red_dark"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_loaded_image_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="LoadedImageSize"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/text_bootloader_loaded_image_crc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:text="LoadedImageCrc"
+                android:layout_marginStart="@dimen/text_view_default_margin"
+                android:textColor="@color/color_text_text_view"
+                android:textSize="@dimen/text_size_common"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dip">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_start_boot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start boot"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_start_load_firmware"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="load firmware"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_start_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start application"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</RelativeLayout>

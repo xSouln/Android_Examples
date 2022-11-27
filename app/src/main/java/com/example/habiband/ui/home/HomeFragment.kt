@@ -2,6 +2,7 @@ package com.example.habiband.ui.home
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.habiband.R
-import com.example.habiband.bluetooth.Connection
-import com.example.habiband.bluetooth.Control
+import com.example.habiband.bluetooth.Scanner
 import com.example.habiband.databinding.FragmentHomeBinding
-import com.example.habiband.ui.dashboard.DashboardFragment
 
 class HomeFragment : Fragment() {
 
@@ -40,7 +39,7 @@ class HomeFragment : Fragment() {
 
         val textView: TextView = binding.textHome
 
-        Control.setEventListener(homeViewModel)
+        Scanner.setEventListener(homeViewModel)
 
         bluetoothDeviceAdapter = HomeAdapter(requireContext(), homeViewModel.getDevices())
 
@@ -56,28 +55,21 @@ class HomeFragment : Fragment() {
 
         binding.buttonFindDevices.setOnClickListener {
             count++
-            Control.resetDiscoverDevices()
+            Scanner.resetDiscoverDevices()
         }
 
         binding.buttonCloseConnections.setOnClickListener{
-            for (gatt in Control.connectedDevices){
+            for (gatt in Scanner.connectedDevices){
                 gatt.close()
             }
-            Control.connectedDevices.clear()
+            //Scanner.connectedDevices.clear()
+
+
         }
 
         binding.bluetoothDevicesListView.setOnItemClickListener { parent, view, position, id ->
             val element = bluetoothDeviceAdapter?.getItem(position) as BluetoothDevice
-            Control.selectedDevice = element
-            //Control.connection?.open(element)
-            /*
-            val bundle = Bundle()
-            val fragment = DashboardFragment()
-            bundle.putBinder("qwerty", )
-            val fragmentTransaction = childFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.navigation_home, DashboardFragment())
-            fragmentTransaction.commit()
-            */
+            Scanner.selectedDevice = element
         }
 
         return root
@@ -85,6 +77,6 @@ class HomeFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Control.setEventListener(null)
+        Scanner.setEventListener(null)
     }
 }

@@ -22,4 +22,10 @@
         android:name="com.example.habiband.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_bootloader"
+        android:name="com.example.habiband.ui.bootloader.BootloaderFragment"
+        android:label="@string/title_bootloader"
+        tools:layout="@layout/fragment_bootloader" />
 </navigation>

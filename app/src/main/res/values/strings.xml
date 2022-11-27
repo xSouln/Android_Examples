@@ -3,4 +3,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_bootloader">Bootloader</string>
+    
+    <string-array name="notifications_graphs_selector">
+        <item>Gyroscope</item>
+        <item>Accelerometer</item>
+        <item>ECG</item>
+        <item>PPG</item>
+    </string-array>
 </resources>

@@ -22,37 +22,37 @@ class ExpandableServicesAdapter(context: Context,
     }
 
     override fun getGroupCount(): Int {
-        if (connection?.gatt == null
-            || connection.gatt!!.services == null) {
+        if (Connection.connectedGatt == null
+            || Connection.connectedGatt!!.services == null) {
             return 0
         }
-        return connection.gatt!!.services.size
+        return Connection.connectedGatt!!.services.size
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        if (connection?.gatt == null
-            || connection.gatt!!.services == null
-            || connection.gatt!!.services[groupPosition].characteristics == null) {
+        if (Connection.connectedGatt == null
+            || Connection.connectedGatt!!.services == null
+            || Connection.connectedGatt!!.services[groupPosition].characteristics == null) {
             return 0
         }
-        return connection.gatt!!.services[groupPosition].characteristics.size
+        return Connection.connectedGatt!!.services[groupPosition].characteristics.size
     }
 
     override fun getGroup(groupPosition: Int): Any {
-        if (connection?.gatt == null
-            || connection.gatt!!.services == null) {
+        if (Connection.connectedGatt == null
+            || Connection.connectedGatt!!.services == null) {
             return 0
         }
-        return connection.gatt!!.services[groupPosition]
+        return Connection.connectedGatt!!.services[groupPosition]
     }
 
     override fun getChild(groupPosition: Int, childPosition: Int): Any {
-        if (connection?.gatt == null
-            || connection.gatt!!.services == null
-            || connection.gatt!!.services[groupPosition].characteristics == null) {
+        if (Connection.connectedGatt == null
+            || Connection.connectedGatt!!.services == null
+            || Connection.connectedGatt!!.services[groupPosition].characteristics == null) {
             return 0
         }
-        return connection.gatt!!.services[groupPosition].characteristics[childPosition]
+        return Connection.connectedGatt!!.services[groupPosition].characteristics[childPosition]
     }
 
     override fun getGroupId(groupPosition: Int): Long {
@@ -85,16 +85,16 @@ class ExpandableServicesAdapter(context: Context,
         }
 
         val uuid = view?.findViewById(com.example.habiband.R.id.text_view_child_service_uuid) as TextView
-        uuid.text = "uuid: " + connection?.gatt?.services!![groupPosition].uuid.toString()
+        uuid.text = "uuid: " + Connection.connectedGatt?.services!![groupPosition].uuid.toString()
 
         val type = view.findViewById(com.example.habiband.R.id.text_view_child_service_type) as TextView
-        type.text = "type: " + connection.gatt!!.services!![groupPosition].type.toString()
+        type.text = "type: " + Connection.connectedGatt!!.services!![groupPosition].type.toString()
 
         val includedServices = view.findViewById(com.example.habiband.R.id.text_view_child_included_services) as TextView
-        includedServices.text = "included services: " + connection.gatt!!.services!![groupPosition].includedServices.size
+        includedServices.text = "included services: " + Connection.connectedGatt!!.services!![groupPosition].includedServices.size
 
         val includedCharacteristics = view.findViewById(com.example.habiband.R.id.text_view_child_included_characteristics) as TextView
-        includedCharacteristics.text = "included characteristics: " + connection.gatt!!.services!![groupPosition].characteristics.size
+        includedCharacteristics.text = "included characteristics: " + Connection.connectedGatt!!.services!![groupPosition].characteristics.size
 
         return view;
     }
@@ -114,22 +114,22 @@ class ExpandableServicesAdapter(context: Context,
         }
 
         val uuid = view?.findViewById(com.example.habiband.R.id.text_view_child_characteristic_uuid) as TextView
-        uuid.text = "uuid :" + connection?.gatt?.services!![groupPosition].characteristics[childPosition].uuid.toString()
+        uuid.text = "uuid :" + Connection.connectedGatt?.services!![groupPosition].characteristics[childPosition].uuid.toString()
 
         val writeType = view.findViewById(com.example.habiband.R.id.text_view_child_characteristic_write_type) as TextView
-        writeType.text = "write type :" + connection.gatt!!.services!![groupPosition].characteristics[childPosition].writeType
+        writeType.text = "write type :" + Connection.connectedGatt!!.services!![groupPosition].characteristics[childPosition].writeType
 
         val descriptorsCount = view.findViewById(com.example.habiband.R.id.text_view_child_descriptors_count) as TextView
-        descriptorsCount.text = "descriptors count :" + connection.gatt!!.services!![groupPosition].characteristics[childPosition].descriptors.size.toString()
+        descriptorsCount.text = "descriptors count :" + Connection.connectedGatt!!.services!![groupPosition].characteristics[childPosition].descriptors.size.toString()
 
         val descriptorsProperties = view.findViewById(com.example.habiband.R.id.text_view_child_characteristic_properties) as TextView
-        descriptorsProperties.text = "properties :" + connection.gatt!!.services!![groupPosition].characteristics[childPosition].properties.toString()
+        descriptorsProperties.text = "properties :" + Connection.connectedGatt!!.services!![groupPosition].characteristics[childPosition].properties.toString()
 
         val descriptorsPermissions = view.findViewById(com.example.habiband.R.id.text_view_child_characteristic_permissions) as TextView
-        descriptorsPermissions.text = "permissions :" + connection.gatt!!.services!![groupPosition].characteristics[childPosition].permissions
+        descriptorsPermissions.text = "permissions :" + Connection.connectedGatt!!.services!![groupPosition].characteristics[childPosition].permissions
 
         val value = view.findViewById(com.example.habiband.R.id.text_view_child_characteristic_value) as TextView
-        value.text = "value :" + connection.gatt!!.services!![groupPosition].characteristics[childPosition].value.toString()
+        value.text = "value :" + Connection.connectedGatt!!.services!![groupPosition].characteristics[childPosition].value.toString()
 
         return view;
     }

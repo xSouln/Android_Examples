@@ -4,7 +4,7 @@ import android.bluetooth.BluetoothDevice
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.habiband.bluetooth.Control
+import com.example.habiband.bluetooth.Scanner
 import com.example.habiband.bluetooth.interfaces.IControlEventListener
 
 class HomeViewModel : ViewModel(), IControlEventListener {
@@ -19,7 +19,7 @@ class HomeViewModel : ViewModel(), IControlEventListener {
     val text: LiveData<String> = _text
 
     init {
-        observableDevices.value = Control.getDiscoveredDevices()
+        observableDevices.value = Scanner.getDiscoveredDevices()
     }
 
     fun getDevices(): LiveData<ArrayList<BluetoothDevice>>{
@@ -27,7 +27,7 @@ class HomeViewModel : ViewModel(), IControlEventListener {
     }
 
     override fun discoveredDevicesChanged() {
-        observableDevices.value = Control.getDiscoveredDevices()
+        observableDevices.value = Scanner.getDiscoveredDevices()
     }
 
     override fun updateCount(count: Long) {

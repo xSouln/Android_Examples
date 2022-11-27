@@ -12,16 +12,17 @@ import com.example.habiband.bluetooth.interfaces.IControlEventListener
 import java.util.*
 
 @SuppressLint("MissingPermission")
-object Control {
+object Scanner {
     private const val SCAN_DEVICES_PERIOD: Long = 5000
 
-    private var bluetoothAdapter: BluetoothAdapter? = null
+    var bluetoothAdapter: BluetoothAdapter? = null
     private var discoveredDevices: ArrayList<BluetoothDevice> = ArrayList<BluetoothDevice>()
-    private var bluetoothManager: BluetoothManager? = null
+    var bluetoothManager: BluetoothManager? = null
 
     var count: Long = 0
     var selectedDevice: BluetoothDevice? = null
     var connectedDevices: ArrayList<BluetoothGatt> = ArrayList<BluetoothGatt>()
+    var connectedGatt: BluetoothGatt? = null
 
     private var eventListener: IControlEventListener? = null
 
@@ -31,8 +32,16 @@ object Control {
         setManager(context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager)
     }
 
-    init {
-
+    fun getType(device: BluetoothDevice?): String{
+        if (device != null){
+            return when(device.type){
+                BluetoothDevice.DEVICE_TYPE_CLASSIC -> "classic"
+                BluetoothDevice.DEVICE_TYPE_LE -> "LE"
+                BluetoothDevice.DEVICE_TYPE_DUAL -> "dual"
+                else -> "unknown"
+            }
+        }
+        return "null"
     }
 
     fun getDiscoveredDevices(): ArrayList<BluetoothDevice> {
@@ -73,7 +82,7 @@ object Control {
         }
     }
 
-    fun setManager(manager: BluetoothManager){
+    private fun setManager(manager: BluetoothManager){
         bluetoothManager = manager
         bluetoothAdapter = bluetoothManager!!.adapter
     }

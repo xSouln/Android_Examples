@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="uuid"
+        android:textColor="@color/color_text_text_view"
         android:textSize="@dimen/text_size_expandable_list_view_header"
         android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="type"
+        android:textColor="@color/color_text_text_view"
         android:textSize="@dimen/text_size_expandable_list_view_header"
         android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
 
@@ -29,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="included services"
+        android:textColor="@color/color_text_text_view"
         android:textSize="@dimen/text_size_expandable_list_view_header"
         android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
 
@@ -37,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="included characteristic"
+        android:textColor="@color/color_text_text_view"
         android:textSize="@dimen/text_size_expandable_list_view_header"
         android:layout_marginStart="@dimen/margin_expandable_list_view_header"/>
 
